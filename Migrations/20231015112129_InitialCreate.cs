@@ -24,17 +24,17 @@ namespace NZWalksAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reagions",
+                name: "Regions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegionImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reagions", x => x.Id);
+                    table.PrimaryKey("PK_Regions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,9 +59,9 @@ namespace NZWalksAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Walks_Reagions_RegionId",
+                        name: "FK_Walks_Regions_RegionId",
                         column: x => x.RegionId,
-                        principalTable: "Reagions",
+                        principalTable: "Regions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -87,7 +87,7 @@ namespace NZWalksAPI.Migrations
                 name: "Difficulties");
 
             migrationBuilder.DropTable(
-                name: "Reagions");
+                name: "Regions");
         }
     }
 }

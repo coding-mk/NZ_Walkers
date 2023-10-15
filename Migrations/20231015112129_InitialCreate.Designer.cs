@@ -12,7 +12,7 @@ using NZWalksAPI.Data;
 namespace NZWalksAPI.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    [Migration("20231013174905_InitialCreate")]
+    [Migration("20231015112129_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,6 +46,10 @@ namespace NZWalksAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -53,13 +57,9 @@ namespace NZWalksAPI.Migrations
                     b.Property<string>("RegionImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Reagions");
+                    b.ToTable("Regions");
                 });
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.Walk", b =>
