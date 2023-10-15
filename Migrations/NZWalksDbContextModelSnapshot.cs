@@ -43,6 +43,10 @@ namespace NZWalksAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -50,13 +54,9 @@ namespace NZWalksAPI.Migrations
                     b.Property<string>("RegionImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Reagions");
+                    b.ToTable("Regions");
                 });
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.Walk", b =>
