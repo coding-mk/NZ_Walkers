@@ -73,7 +73,7 @@ public class RegionsController : ControllerBase
       // };
       
       // Return DTOs back to client
-      return Ok(_mapper.Map<List<RegionDto>>(regionDomain));
+      return Ok(_mapper.Map<RegionDto>(regionDomain));
   }
 
   // POST to Create New Region
