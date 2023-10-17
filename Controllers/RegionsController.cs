@@ -20,10 +20,15 @@ public class RegionsController : ControllerBase
 
   private readonly IMapper _mapper;
 
-  public RegionsController(IRegionRepository regionRepository, IMapper mapper)
+  private readonly ILogger<RegionsController> _logger;
+
+  public RegionsController(IRegionRepository regionRepository,
+     IMapper mapper,
+     ILogger<RegionsController> logger)
   {
     this._regionRepository = regionRepository;
     this._mapper = mapper;
+    this._logger = logger;
   }
 
   // GET All Regions
