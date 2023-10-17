@@ -34,7 +34,7 @@ public class RegionsController : ControllerBase
   // GET All Regions
   // GET : https://localhost:port/api/regions
   [HttpGet]
-  [Authorize(Roles = "Reader")]
+  //[Authorize(Roles = "Reader")]
   public async Task<IActionResult> GetAllRegions()
   {
       // Get Data from database - Domain models
@@ -61,7 +61,7 @@ public class RegionsController : ControllerBase
   // GET : https://localhost:port/api/regions/{id}
   [HttpGet]
   [Route("{id:Guid}")]
-  [Authorize(Roles = "Reader")]
+  //[Authorize(Roles = "Reader")]
   public async Task<IActionResult> GetByRegionsId([FromRoute] Guid id)
   {
       var regionDomain = await _regionRepository.GetByRegionsIdAsync(id);
@@ -89,7 +89,7 @@ public class RegionsController : ControllerBase
   // POST : http://localhost:port/api/regions
   [HttpPost]
   [ValidateModule]
-  [Authorize(Roles = "Writer")]
+  //[Authorize(Roles = "Writer")]
   public async Task<IActionResult> CreateNewRegion([FromBody] AddRegionRequestDto addRegionRequestDto)
   {
     // Map or Convert DTO to Domain Model
@@ -122,7 +122,7 @@ public class RegionsController : ControllerBase
   [HttpPut]
   [Route("{id:Guid}")]
   [ValidateModule]
-  [Authorize(Roles = "Writer")]
+  //[Authorize(Roles = "Writer")]
   public async Task<IActionResult> UpdateRegion([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
   {
       //Map DTO to Domain model
@@ -157,7 +157,7 @@ public class RegionsController : ControllerBase
   // DELETE: https://localhost:port/api/region/{id}
   [HttpDelete]
   [Route("{id:Guid}")]
-  [Authorize(Roles = "Writer")]
+  //[Authorize(Roles = "Writer")]
   public async Task<IActionResult> DeleteRegion([FromRoute] Guid id)
   {
     // Check if region exists
